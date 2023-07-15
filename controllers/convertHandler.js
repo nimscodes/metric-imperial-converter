@@ -86,7 +86,7 @@ function ConvertHandler() {
       lbs: lbsToKg,
       kg: 1 / lbsToKg,
     };
-    return parseFloat(initNum * conversion[initUnit].toFixed(5));
+    return (initNum * conversion[initUnit]).toFixed(5);
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
