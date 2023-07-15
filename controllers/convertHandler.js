@@ -36,7 +36,7 @@ function ConvertHandler() {
       return "invalid input";
     }
 
-    const validUnits = ["mi", "km", "lbs", "kg", "gal", "l"];
+    const validUnits = ["mi", "km", "lbs", "kg", "gal", "L"];
 
     let unit = match[0];
 
@@ -52,8 +52,8 @@ function ConvertHandler() {
 
   this.getReturnUnit = function (initUnit) {
     const units = {
-      gal: "l",
-      l: "gal",
+      gal: "L",
+      L: "gal",
       mi: "km",
       km: "mi",
       lbs: "kg",
@@ -65,7 +65,7 @@ function ConvertHandler() {
   this.spellOutUnit = function (unit) {
     const units = {
       gal: "gallons",
-      l: "liters",
+      L: "liters",
       mi: "miles",
       km: "kilometers",
       lbs: "pounds",
@@ -80,13 +80,13 @@ function ConvertHandler() {
     const miToKm = 1.60934;
     const conversion = {
       gal: galToL,
-      l: 1 / galToL,
+      L: 1 / galToL,
       mi: miToKm,
       km: 1 / miToKm,
       lbs: lbsToKg,
       kg: 1 / lbsToKg,
     };
-    return initNum * conversion[initUnit];
+    return initNum * conversion[initUnit].toFixed(5);
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
