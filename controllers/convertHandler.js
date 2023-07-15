@@ -38,7 +38,9 @@ function ConvertHandler() {
 
     const validUnits = ["mi", "km", "lbs", "kg", "gal", "l"];
 
-    let unit = match[0].toLowerCase();
+    let unit = match[0];
+
+    unit = unit === 'l' || unit === 'L' ? 'L' : unit.toLowerCase();
 
     // Check if the unit is valid
     if (validUnits.includes(unit)) {
