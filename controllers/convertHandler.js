@@ -86,13 +86,13 @@ function ConvertHandler() {
       lbs: lbsToKg,
       kg: 1 / lbsToKg,
     };
-    return initNum * conversion[initUnit].toFixed(5);
+    return parseFloat(initNum * conversion[initUnit].toFixed(5));
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
     return `${initNum} ${this.spellOutUnit(
       initUnit
-    )} converts to ${returnNum.toFixed(5)} ${this.spellOutUnit(returnUnit)}`;
+    )} converts to ${returnNum} ${this.spellOutUnit(returnUnit)}`;
   };
 }
 
