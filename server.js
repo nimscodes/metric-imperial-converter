@@ -7,14 +7,12 @@ const cors        = require('cors');
 require('dotenv').config();
 
 const apiRoutes         = require('./routes/api.js');
-const fccTestingRoutes  = require('./routes/fcctesting.js');
-const runner            = require('./test-runner');
 
 let app = express();
 
 app.use('/public', express.static(process.cwd() + '/public'));
 
-app.use(cors({origin: '*'})); //For FCC testing purposes only
+app.use(cors({origin: '*'})); 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -25,8 +23,6 @@ app.route('/')
     res.sendFile(process.cwd() + '/views/index.html');
   });
 
-//For FCC testing purposes
-fccTestingRoutes(app);
 
 //Routing for API 
 apiRoutes(app);  
@@ -40,20 +36,9 @@ app.use(function(req, res, next) {
 
 const port = process.env.PORT || 3000;
 
-//Start our server and tests!
-app.listen(port, function () {
-  console.log("Listening on port " + port);
-  if(process.env.NODE_ENV==='test') {
-    console.log('Running Tests...');
-    setTimeout(function () {
-      try {
-        runner.run();
-      } catch(e) {
-          console.log('Tests are not valid:');
-          console.error(e);
-      }
-    }, 1500);
-  }
-});
+
+app.listen(port, () => {
+  console.log(`App listening on ${port}`);
+})
 
 module.exports = app; //for testing

@@ -77,7 +77,4 @@ suite("Unit Tests", function () {
     assert.equal(convertHandler.convert(1, 'kg'), (1/0.453592).toFixed(5));
   });
   
-
-  
-
 });

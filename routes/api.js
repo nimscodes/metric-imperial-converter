@@ -19,17 +19,17 @@ module.exports = function (app) {
 
     // Check if both number and unit are invalid
     if (initNum === "invalid number" && initUnit === "invalid unit") {
-      return res.json({ error: "invalid number and unit" });
+      return res.status(200).json({ error: "invalid number and unit" });
     }
 
     // Check if number is invalid
     if (initNum === "invalid number") {
-      return res.json({ error: "invalid number" });
+      return res.status(200).json({ error: "invalid number" });
     }
 
     // Check if unit is invalid
     if (initUnit === "invalid unit") {
-      return res.json({ error: "invalid unit" });
+      return res.status(200).json({ error: "invalid unit" });
     }
 
     const returnNum = convertHandler.convert(initNum, initUnit);
