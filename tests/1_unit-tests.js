@@ -28,7 +28,7 @@ suite("Unit Tests", function () {
   test("Default to 1 when no number provided", function () {
     assert.equal(convertHandler.getNum("kg"), 1);
   });
-  test('Read each valid input unit please', function(){
+  test('Read each valid input unit', function(){
     assert.equal(convertHandler.getUnit('1l'), 'L');
   });
   test('should correctly return an error for an invalid input unit', function() {
